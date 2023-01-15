@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: rgb(226, 226, 226);
+}
+
+.main .trust{
+    width: 90px;
+    padding: 1.5px 0;
+    float: right;
+    margin-right: 5px;
+}
+
+.main .header
+{
+    text-align: left;
+    background-color: rgba(76, 105, 94, 0.09);
+}
+
+.somaiya{
+    height: auto;
+    width: 400px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    width: 90px;
+    /* width: 280px; */
+    background: #fff;
+    overflow: hidden;
+    transition: 1s;
+}
+
+nav:hover {
+    width: 280px;
+    transition: 1s;
+}
+
+.logo {
+    display: flex;
+    margin: 10px 0 0 10px;
+    padding-bottom: 3rem;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.logo span {
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.box a {
+    position: relative;
+    width: 280px;
+    font-size: 14px;
+    color: rgb(85, 83, 83);
+    display: table;
+    padding: 10px;
+}
+
+a 
+{
+    position: relative;
+    width: 280px;
+    font-size: 14px;
+    color: rgb(85, 83, 83);
+    display: table;
+    padding: 10px;
+    text-decoration: none;
+}
+
+nav .fas {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-item {
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+
+a:hover {
+    background: #eee;
+}
+
+a:hover i {
+    color: #34AF6D;
+    transition: 0.5s;
+}
+
+.carousel-inner
+{
+    padding: 20px 0;
+}
+
+.carousel-inner img
+{
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 20px;
+    
+}
+
+.carousel-caption
+{
+    position: absolute;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 300px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+.card a{
+    display: block;
+    width: auto;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+}
+
+.box {
+    display: flex;
+}
+
+img
+{
+    width: 100px;
+}
+
+/* MAin Section */
+.main {
+    position: relative;
+    padding: 20px;
+    padding-bottom: 0;
+    width: 100%;
+    height: auto;
+    background: rgb(74,212,137);
+    background: linear-gradient(270deg, rgb(111, 221, 160) 0%, rgb(255, 255, 255) 100%);
+}
+
+.main-top {
+    display: flex;
+    width: 100%;
+}
+
+.main-top i {
+    position: absolute;
+    right: 0;
+    margin: 10px 30px;
+    color: rgb(110, 109, 109);
+    cursor: pointer;
+}
+
+h4
+{
+    padding: 10px 0;
+    font-size: x-large;
+    color: #b7202e;
+    font-weight: bold;
+}
+
+td img
+{
+    width: 30px;
+}
+
+.branch
+{
+    padding: 20px 10px;
+    font-weight: 600;
+}
+
+.branch a
+{
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    width: auto;
+}
+
+.branch a:hover
+{
+    background-color: transparent;
+    color:#b7202e;
+    font-weight: bold;
+}
+
+.b-row .row
+{
+    /* background-color: rgba(76, 105, 94, 0.09); */
+    border-radius: 20px;
+}
+
+.b-row
+{
+    padding-bottom: 30px;
+}
+
+footer
+{
+    background-color: rgba(0, 0, 0, 0.422);
+    border-radius: 20px 20px 0 0;
+}
+
+footer .row
+{
+
+    color: #fff;
+    padding: 0px 0;
+    text-align: center;
+}
+
+footer a
+{
+    margin: auto;
+    border-radius: 20px;
+}
+
+footer p
+{
+    margin-bottom: 5px;
+}
+
+footer a:hover
+{
+    padding: 10px 0;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.Link-head
+{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.name
+{
+    border-radius: 0;
+    width: auto;
+    color: black;
+    margin: 0;
+    text-align: center;
+}
+
+hr
+{
+    border-style: none;
+    border-top-style: dotted;
+    border-width: 10px;
+    border-color: #bac0c0;
+    width: 10%;
+    margin: 20px auto;
+}

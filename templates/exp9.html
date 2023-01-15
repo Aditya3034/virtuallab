@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJ VLABS-Experiment 9</title>
+
+    <!-- Bootstrap Cdn Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../Static/favicon.ico" type="image/x-icon">
+
+    <!-- css file -->
+    <link rel="stylesheet" href="../Static/exp9.css">
+
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <div class="box">
+        <nav>
+            <ul class="list-group">
+                <li><a href="#" class="logo">
+                        <img src="/Static/profile.png">
+                        <span class="nav-item">User</span>
+                    </a></li>
+                <li><a href="/Templates/index.html">
+                        <i class="fas fa-menorah"></i>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+                <li><a href="/Templates/index.html">
+                        <i class="fas fa-comment"></i>
+                        <span class="nav-item">About</span>
+                    </a></li>
+                <li><a href="/Templates/experiments.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Experiments</span>
+                    </a></li>
+                <li><a href="/Templates/index.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+        <section class="main">
+            <section class="header">
+                <table style="width: 100%; font-weight: bold; color: #b7202e;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="/Static/KJSIEITLogoMain (1)_preview_rev_1.png" alt="" class="somaiya">
+                            </td>
+                            <td>
+                                <h1 style="margin-bottom: 0px ;">K.J. Somaiya Virtual Labs</h1>
+                            </td>
+                            <td>
+                                <img src="/Static/SomaiyaTrust.png" alt="" class="trust">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="attendance">
+                <div class="attendance-list" style="width: auto;">
+                    <h2>Experiment 9 - Shannon Fano Encoding Algorithm</h2>
+                    <div class="table">
+                        <table>
+                            <th><a href="#aim">Aim</a></th>
+                            <th><a href="#apparatus">Apparatus</a></th>
+                            <th><a href="#theory">Code</a></th>
+                            <th><a href="#conclusion">Conclusion</a></th>
+                            <th><a href="/Templates/sim9.html">Simulation</a></th>
+                        </table>
+                    </div>
+                    <div>
+                        <p id="aim"><h4>Aim: -</h4>To Observe Shannon Fano Encoding Algorithm</p><br>
+                        <p id="apparatus"><h4>Apparatus: -</h4>matlab</p><br>
+                        <p style="text-align: center;"><img src="/Static/probstep4.png" alt="" style="width: 400px;"></p> <br>
+                        <p id="theory"><h4>Code: -</h4>
+                            <pre>
+                                <code>
+                                    %Shannon-Fano Encoding
+                                    clc;
+                                    clear all;
+                                    close all;
+                                    disp(&#39;Enter the probabilities:&#39;);
+                                    %ss=[0.25 0.125 0.5 0.125];
+                                    ss=[0.25 0.125 0.0625 0.0625 0.0625 0.25 0.0625 0.125];
+                                    %ss=[0.4 0.2 0.12 0.08 0.08 0.08 0.04]
+                                    %ss=[0.4 0.3 0.2 0.1]
+                                    %ss=[0.45 0.15 0.1 0.1 0.08 0.08 0.04]
+                                    %ss=[0.2 0.15 0.03 0.05 0.45 0.08 0.04]
+                                    %outputs = string of codewords,average codeword length
+                                    ss=ss./sum(ss); %if occurrences are inputted, probabilities are gained
+                                    ss=sort(ss,&#39;descend&#39;);  %the probabilities are sorted in descending order
+                                    %siling=ceil(log2(1/ss(1))); %initial length is computed
+                                    siling=log2(1/ss(1)); %initial length is computed
+                                    siling=round(siling,1,&#39;significant&#39;);
+                                    sf=0;
+                                    fano=0;
+                                    %initializations for Pk
+                                    n=1;Hx=0; %initializations for entropy H(X)
+                                    for i=1:length(ss)
+                                       Hx=Hx+ ss(i)*log2(1/ss(i)); %solving for entropy
+                                    end
+
+                                    for k=1:length(ss)
+                                    info(k)=-(log2(ss(k))); %Information
+                                    end
+                                    for j=1:length(ss)-1
+                                       fano=fano+ss(j);
+                                       sf=[sf 0]+[zeros(1,j) fano]; %solving for Information for every codeword
+                                       siling=[siling 0]+[zeros(1,j)
+                                    ceil(log2(1/ss(j+1)))]; %solving for length every codeword
+                                    end
+                                    for r=1:length(sf)
+                                        esf=sf(r);
+                                        for p=1:siling(r)   
+                                            esf=mod(esf,1)*2;
+                                            h(p)=esf-mod(esf,1); %converting Pk into a binary number      
+                                        end
+                                        hh(r)=h(1)*10^(siling(r)-1); %initializtion for making the binary a whole number
+                                    for t=2:siling(r)
+                                            hh(r)=hh(r)+h(t)*10^(siling(r)-t);    %making the binary
+                                    a whole number
+                                        end    %e.g. 0.1101 ==&gt; 1101
+                                    end
+
+                                    c={&#39;0&#39;,&#39;1&#39;};
+                                    disp(&#39;Codeword&#39;);
+
+                                    for i=1:length(hh)
+                                        u=1;   %converting the codes into a string
+                                       for t=siling(i):-1:1
+                                           f=floor(hh(i)/10^(t-1));               %1001 ==&gt; 1 (getting the first highest unit of a number)
+                                           hh(i)=mod(hh(i),10^(t-1));             %1001
+                                    ==&gt;001(eliminating the first highest unit of a number)
+                                    if f==1
+                                               if u==1
+                                                    d=c{2};    %conversion part (num(1001) to str(1001)) 
+                                               else
+                                                    d=[d c{2}];
+                                               end
+                                           else
+                                    if u==1
+                                                    d=c{1};
+                                               else
+                                                    d=[d c{1}];
+                                               end
+                                           end
+                                          
+                                           codex{i,:}={d};
+                                           u=u+1;
+                                    end
+                                       disp([d])
+
+                                    end
+
+                                    tao=siling(1)*ss(1); %initialization for codeword length
+                                    for u=1:length(ss)-1 %computing for codeword length
+                                       tao=tao+siling(u+1)*ss(u+1);
+                                    end
+                                    T=tao/n; %computing for average codeword length
+                                    B=[flipud(rot90(ss)),flipud(rot90(siling)),flipud(rot90(info))];
+                                    disp([&#39;Probability&#39;,&#39;   Length&#39;,&#39;   Information&#39;])
+                                    disp(B)
+                                    disp([&#39;Entropy H(X) = &#39;,num2str(Hx),&#39;bits/symbol&#39;])
+                                    disp([&#39;Average length,L = &#39;,num2str(T),&#39;bits/symbol&#39;])
+                                    eff=((Hx/T)*100); %Coding efficiency
+                                    disp([&#39;Efficiency=&#39;,num2str(eff),&#39;%&#39;])
+                                    redu=100-eff;   %Redundancy
+                                    disp([&#39;Redundancy=&#39;,num2str(redu),&#39;%&#39;])
+                                </code>
+                            </pre>
+                        </p>
+                        <p id="conclusion"><h4>Conclusion: -</h4>
+                            Thus The algorithm produces fairly efficient variable-length encodings; when the two smaller sets produced by a partitioning are in fact of equal probability, the one bit of information used to distinguish them is used most efficiently.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <footer>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <p class="Link-head">Quick Links</p>
+                            <p class="Links"><a href="" style="color: black;">Feedback</a></p>
+                            <p class="Links"><a href="https://www.kjsieit.in/simsbackup/2021/Even/php/home.php" style="color: black;">Sims Portal</a></p>
+                            <p class="Links"><a href="https://kjsieit.somaiya.edu.in/en" style="color: black;">KJSIEIT Website</a></p>
+                        </div>
+                        <div class="col-lg-4">
+                            <p class="Link-head">About KJ labs</p>
+                            <p class="Links"><a href="/Templates/index.html" style="color: black;">Home</a></p>
+                            <p class="Links"><a href="" style="color: black;">About Us</a></p>
+                        </div>
+                        <div class="col-lg-4">
+                            <p class="Link-head">Contact Us</p>
+                            <p class="Links"><a
+                                    href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=info@tech.somaiya.edu"
+                                    style="color: black;">info.tech@somaiya.edu</a></p>
+                            <p class="Links" style="color: black; font-size: 14px;">91-22- 24061408 / 24061403</p>
+                            <p class="Links"><a
+                                    href="https://www.google.com/maps/place/K.+J.+Somaiya+Institute+of+Engineering+and+Information+Technology/@19.046058,72.8710809,15z/data=!4m5!3m4!1s0x0:0x473006136ad440dc!8m2!3d19.046058!4d72.8710809"
+                                    target="_blank" style="color: black;">Address</a></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row last">
+                        <div class="col-lg-3">
+                            <p>
+                                <a href="https://www.somaiya.edu.in/en/privacy-policy" style="color: black;" target="_blank">Privacy Policy</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>
+                                <a href="https://www.somaiya.edu.in/en/terms-and-conditions" style="color: black;"
+                                    target="_blank">Terms and Conditions</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>
+                                <a href="https://www.somaiya.edu.in/en/disclaimer" style="color: black;"
+                                    target="_blank">Disclaimer</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>
+                                <a href="/Templates/index.html" style="color: black;" target="_blank">&copy; 2022 KJ Labs</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <div style="padding-left: 10px; font-size: small;">
+                        <p style="text-align: center; display: flex; color: black;" >
+                            Developed By: 
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-right: 0; margin-left: 0;">Pranav Singh,&nbsp</a>
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-left: 0; margin-left: 0;">Sahil Kumar,&nbsp</a>
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-left: 0; margin-left: 0;">Aditya Khedekar,&nbsp</a>
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-left: 0; margin-left: 0;">Vedant Tadala,&nbsp</a>
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-left: 0; margin-left: 0;">Kunal Thakkar.&nbsp</a>
+                        </p>
+                    </div> -->
+                </footer>
+            </section>
+        </section>
+    </div>
+</body>
+</html>
