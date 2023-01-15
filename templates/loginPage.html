@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Login Page</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<link href="../static/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="contact-form" id="contact-form">
+		<img alt="" class="avatar" src="https://i.postimg.cc/zDyt7KCv/a1.jpg">
+		<div class="btn">
+			<button class="signUpBtn" id="signUpBtn">SIGN UP</button>
+			<button class="loginBtn" id="loginBtn">LOG IN</button>
+		</div>
+		<div>
+			<form action="loginPage.html" method="post" class="login" id="login">
+				<p>Email</p><input placeholder="Enter Email" type="email" name="email" autocomplete="off">
+				<p>Passwrod</p><input placeholder="Enter Password" type="password" id="loginPassword" name="password" autocomplete="off">
+				<i class="far fa-eye" id="toggleLoginPassword" style="margin-left: -30px; cursor: pointer;"></i>
+				<input type="submit" name="submit" value="Sign in">
+				<p><input type="checkbox">Keep me signed in on this device</p>
+			</form>
+		</div>
+		<!-- Sign Up Form -->
+		<div>
+			<form action="register.html" method="post" class="signUp" id="signUp">
+				<p>Username</p><input placeholder="Enter username" type="text" name="name" autocomplete="off">
+				<p>Email</p><input placeholder="Enter Email" type="email" name="email" autocomplete="off">
+				<p>Passwrod</p><input placeholder="Enter Password" type="password" id="id_password" name="password"
+					autocomplete="off">
+				<i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+				<p>Confirm Passwrod</p><input placeholder="Enter Confirm Password" id="confirmPassword" type="password"
+					name="confirm password" autocomplete="off">
+				<i class="far fa-eye" id="toggleConfirmPassword" style="margin-left: -30px; cursor: pointer;"></i>
+				<input type="submit" name="submit" value="REGISTER">
+				<p><input type="checkbox">I agree with terms & conditions</p>
+			</form>
+		</div>
+	</div>
+	<script>
+		const loginBtn = document.getElementById("loginBtn");
+		const signUpBtn = document.getElementById("signUpBtn")
+		const signUp = document.getElementById("signUp");
+		const login = document.getElementById("login");
+		const contactForm = document.getElementById("contact-form");
+		const togglePassword = document.querySelector('#togglePassword');
+		const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+		const toggleLoginPassword = document.querySelector('#toggleLoginPassword');
+		const password = document.querySelector('#id_password');
+		const confirmPassword = document.querySelector('#confirmPassword');
+		const loginPassword = document.querySelector('#loginPassword');
+
+
+		togglePassword.addEventListener('click', function (e) {
+			// toggle the type attribute
+			const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+			password.setAttribute('type', type);
+			// toggle the eye slash icon
+			this.classList.toggle('fa-eye-slash');
+		});
+		toggleConfirmPassword.addEventListener('click', function (e) {
+			// toggle the type attribute
+			const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+			confirmPassword.setAttribute('type', type);
+			// toggle the eye slash icon
+			this.classList.toggle('fa-eye-slash');
+		});
+		toggleLoginPassword.addEventListener('click', function (e) {
+			// toggle the type attribute
+			const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+			loginPassword.setAttribute('type', type);
+			// toggle the eye slash icon
+			this.classList.toggle('fa-eye-slash');
+		});
+		signUp.style.display = 'none'
+		signUpBtn.style.borderBottom = 'none'
+		console.log(contactForm);
+
+		loginBtn.addEventListener('click', () => {
+			signUp.style.display = 'none';
+			login.style.display = 'block';
+			contactForm.style.height = "315px";
+			loginBtn.style.borderBottom = '2px solid #ff4141'
+			signUpBtn.style.borderBottom = 'none'
+		})
+
+
+		signUpBtn.addEventListener('click', () => {
+			login.style.display = 'none';
+			signUp.style.display = 'block';
+			contactForm.style.height = "485px";
+			signUpBtn.style.borderBottom = '2px solid #ff4141'
+			loginBtn.style.borderBottom = 'none'
+		})
+	</script>
+</body>
+
+</html>

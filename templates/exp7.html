@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJ VLABS-Experiment 7</title>
+
+    <!-- Bootstrap Cdn Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../Static/favicon.ico" type="image/x-icon">
+
+    <!-- css file -->
+    <link rel="stylesheet" href="../Static/exp7.css">
+
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <div class="box">
+        <nav>
+            <ul class="list-group">
+                <li><a href="#" class="logo">
+                        <img src="/Static/profile.png">
+                        <span class="nav-item">User</span>
+                    </a></li>
+                <li><a href="/Templates/index.html">
+                        <i class="fas fa-menorah"></i>
+                        <span class="nav-item">Home</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="fas fa-comment"></i>
+                        <span class="nav-item">About</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Experiments</span>
+                    </a></li>
+                <li><a href="#" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+        <section class="main">
+            <section class="header">
+                <table style="width: 100%; font-weight: bold; color: #b7202e;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="/Static/KJSIEITLogoMain (1)_preview_rev_1.png" alt="" class="somaiya">
+                            </td>
+                            <td>
+                                <h1 style="margin-bottom: 0px ;">K.J. Somaiya Virtual Labs</h1>
+                            </td>
+                            <td>
+                                <img src="/Static/SomaiyaTrust.png" alt="" class="trust">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="attendance">
+                <div class="attendance-list" style="width: auto;">
+                    <h2>Experiment 7 - Measurement Of Bit Error Rate Using Binary Data</h2>
+                    <div class="table">
+                        <table>
+                            <th><a href="#aim">Aim</a></th>
+                            <th><a href="#apparatus">Apparatus</a></th>
+                            <th><a href="#theory">Theory</a></th>
+                            <th><a href="#procedure">Procedure</a></th>
+                            <th><a href="#calculations">Calculations</a></th>
+                            <th><a href="#observation">Observation</a></th>
+                            <th><a href="#conclusion">Conclusion</a></th>
+                            <th><a href="/Templates/sim7.html">Simulation</a></th>
+                        </table>
+                    </div>
+                    <div>
+                        <p id="aim"><h4>Aim: -</h4> Measurement of Bit Error Rate</p><br>
+                        <p id="apparatus"><h4>Apparatus: -</h4> Base Band Digital Transmission System Kit, Power Supply, connecting chords, 20MHz Dual Trace Oscilloscope</p><br>
+                        <p id="theory"><h4>Theory: -</h4><p><br>In telecommunication transmission line, the bit error rate (BER) is the ratio of bits that have errors relative to the total no. of bits received in transmission. The BER is an indication of how often a packet of other data unit has to be retransmitted because of an error. Too high a BER may indicate that a slower data rate would actually improve overall transmission time for a given amount of transmitted data since BER might be reduced, lower the number of packets have to be resent.</p><br>
+
+                        <p><b>Measuring Bit Error Rate:</b> <br><br> A BERT (bit error rate tester) is a procedure or device that measures the BER for given transmission. The BER, or quality of digital link is calculated from the number of bits received is error divided by number of bits transmitted.</p><br>
+                        
+                        <p>BER = (Bit in error / Total bit transmitted)</p> <br> Using a bench test setup, this is easily measured by means of a comparator in which the transmitted bits received are matched in an XOR gate with the received bits. <br><br> Figure shows the schematic of the device used for the following measurement. <br><br> If bits are alike at XOR gate, input when clocked in from D Flip-flop, the output is low. If they are different, the XOR output goes high, causing an event count. <br><br> A random character generator and white noise source should be used for these measurements. The number of bits errors is dependent upon the amount of noise entering the system. The white noise, or background noise, has an average or RMS value that is exceeded periodically by peaks that rise many times that level. This peak exists only for a short period of time. When the peak equals or exceeds the signal level, that is noise energy = bit energy, there is 50/50 chance or error. The peak time periods can be calculated statistically from the error function. The error function is the probability. <br><br>
+                        </p>
+                        <p id="procedure"><h4>Procedure: -</h4><br>
+                            <ol type="1" style="padding-left: 20px;">
+                                <li>Connect power supply in proper polarity to kit ADCL-04 and switch it on, keeping the switch faults in off position.</li>
+                                <li>Keep position of switch SW1 of PRBS generator.</li>
+                                <li>Keep PRBS clock frequency to 16 KHz using jumper JP1.</li>
+                                <li>Connect PRBS DATA OUT post to IN post of error bit adder.</li>
+                                <li>Observe the noise pulse to E.P. by varying pot P2.</li>
+                                <li>Connect the OUT port of the Adder to RX DATA port of BER meter.</li>
+                                <li>Keep pot P2 of error bit adder at minimum position.</li>
+                                <li>Connect the DATA OUT port to PRBS generator to DATA IN post of BER meter.</li>
+                                <li>Press the RST switch to reset the counter to zero.</li>
+                                <li>Press START switch to start the counting.</li>
+                                <li>Observe the error count on the display after 10 seconds upon pressing START switch.</li>
+                                <li>Observe that when pot is kept at a minimum position, bit error count is very low. The error count will increase linearly as we increase the pot to the maximum (clockwise) position.</li>
+                            </ol>
+                        </p><br>
+                        <p id="calculations"><h4>Calculations: -</h4><br>
+                            BER MEASUREMENT <br><br>
+                            The noisy data from the OUT post of the Adder is connected to the RX DATA IN of the BER meter as BER is the Ration of error bits (Eb) to total bits transmitted (Tb) in a period time t sec i.e. <br>
+                            BER = (Bits in Error) Eb/(Total Bits transmitted) Tb <br>
+                            E.g.: If PRBS data is transmitted at 32Kbits per sec for a period of 10 sec. <br>
+                            The total bits transmitted in 10 secs (Tb) = 320 bits. <br>
+                            The TTL out data with noise is fed to BER counter, which compares the two data input at each clock input. The counter gives the 10 bit binary error count (Eb) which is converted into decimal form and displayed.
+                            E.g.: (0000001010 = 10 (decimal form))
+
+BER RATIO then becomes:
+BER = 10/320*10E 3
+= 0.00003125
+i.e. the channel Bit Error Rate ratio is 3.1*10E -5 (3/100000) or in other words we can say that out of
+100000 bits transmitted through the channel, the channel gives 3 bits in error.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <footer>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <p class="Link-head">Quick Links</p>
+                            <p class="Links"><a href="" style="color: black;">Feedback</a></p>
+                            <p class="Links"><a href="https://www.kjsieit.in/simsbackup/2021/Even/php/home.php" style="color: black;">Sims Portal</a></p>
+                            <p class="Links"><a href="https://kjsieit.somaiya.edu.in/en" style="color: black;">KJSIEIT Website</a></p>
+                        </div>
+                        <div class="col-lg-4">
+                            <p class="Link-head">About KJ labs</p>
+                            <p class="Links"><a href="/Templates/index.html" style="color: black;">Home</a></p>
+                            <p class="Links"><a href="" style="color: black;">About Us</a></p>
+                        </div>
+                        <div class="col-lg-4">
+                            <p class="Link-head">Contact Us</p>
+                            <p class="Links"><a
+                                    href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=info@tech.somaiya.edu"
+                                    style="color: black;">info.tech@somaiya.edu</a></p>
+                            <p class="Links" style="color: black; font-size: 14px;">91-22- 24061408 / 24061403</p>
+                            <p class="Links"><a
+                                    href="https://www.google.com/maps/place/K.+J.+Somaiya+Institute+of+Engineering+and+Information+Technology/@19.046058,72.8710809,15z/data=!4m5!3m4!1s0x0:0x473006136ad440dc!8m2!3d19.046058!4d72.8710809"
+                                    target="_blank" style="color: black;">Address</a></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row last">
+                        <div class="col-lg-3">
+                            <p>
+                                <a href="https://www.somaiya.edu.in/en/privacy-policy" style="color: black;" target="_blank">Privacy Policy</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>
+                                <a href="https://www.somaiya.edu.in/en/terms-and-conditions" style="color: black;"
+                                    target="_blank">Terms and Conditions</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>
+                                <a href="https://www.somaiya.edu.in/en/disclaimer" style="color: black;"
+                                    target="_blank">Disclaimer</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p>
+                                <a href="/Templates/index.html" style="color: black;" target="_blank">&copy; 2022 KJ Labs</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <div style="padding-left: 10px; font-size: small;">
+                        <p style="text-align: center; display: flex; color: black;" >
+                            Developed By: 
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-right: 0; margin-left: 0;">Pranav Singh,&nbsp</a>
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-left: 0; margin-left: 0;">Sahil Kumar,&nbsp</a>
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-left: 0; margin-left: 0;">Aditya Khedekar,&nbsp</a>
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-left: 0; margin-left: 0;">Vedant Tadala,&nbsp</a>
+                            <a href="" class="name" style="padding: auto 0; color: black; margin-left: 0; margin-left: 0;">Kunal Thakkar.&nbsp</a>
+                        </p>
+                    </div> -->
+                </footer>
+            </section>
+        </section>
+    </div>
+</body>
+</html>
